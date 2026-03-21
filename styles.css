@@ -116,27 +116,31 @@ body {
     color: var(--text-dark);
     background-color: var(--bg-light);
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
     width: 100%;
     box-sizing: border-box;
 }
 
 main.container {
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Add left margin on desktop for sidebar */
+/* Desktop: Add left padding for sidebar */
 @media (min-width: 1025px) {
     main.container {
-        margin-left: 240px;
+        padding-left: 270px;
+        max-width: calc(100% - 0px);
     }
 }
 
@@ -243,17 +247,16 @@ main.container {
 .theme-selector {
     background-color: white;
     padding: 1.5rem;
-    margin: 2rem auto;
+    margin: 2rem 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 1200px;
 }
 
-/* Add left margin on desktop for sidebar */
+/* Desktop: theme selector positioning */
 @media (min-width: 1025px) {
     .theme-selector {
-        margin: 2rem 0 2rem 240px;
+        margin: 2rem 15px 2rem 270px;
     }
 }
 
@@ -289,17 +292,17 @@ main.container {
 .featured-event-banner {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
     color: white;
-    padding: 2.5rem 2rem;
-    margin: 0 auto 2rem auto;
+    padding: 2rem 1.5rem;
+    margin: 0 15px 2rem 15px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 1200px;
 }
 
-/* Add left margin on desktop for sidebar */
+/* Desktop: featured banner positioning */
 @media (min-width: 1025px) {
     .featured-event-banner {
-        margin: 0 0 2rem 240px;
+        margin: 0 15px 2rem 270px;
+        padding: 2.5rem 2rem;
     }
 }
 
@@ -476,18 +479,27 @@ main.container {
 /* ===== MAIN SECTIONS ===== */
 
 .section {
-    padding: 4rem 2rem;
+    padding: 2rem 1.5rem;
     background-color: white;
-    margin: 2rem auto;
+    margin: 2rem 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    max-width: 1200px;
 }
 
-/* Add left margin on desktop for sidebar */
+/* Tablet and Desktop sections */
+@media (min-width: 768px) {
+    .section {
+        padding: 3rem 2rem;
+        margin: 2rem auto;
+        max-width: 1200px;
+    }
+}
+
+/* Desktop: Add sidebar offset */
 @media (min-width: 1025px) {
     .section {
-        margin: 2rem 0 2rem 240px;
+        margin: 2rem 15px 2rem 270px;
+        max-width: none;
     }
 }
 
@@ -1106,33 +1118,22 @@ main.container {
         max-height: 500px;
     }
 
-    /* Sidebar responsive for tablets */
+    /* Hide sidebar completely on tablet */
     .sidebar {
-        position: fixed;
-        left: -250px;
-        width: 200px;
-        top: 150px;
-        transition: left 0.3s ease;
+        display: none !important;
     }
 
-    .sidebar.active {
-        left: 0;
+    .container {
+        padding: 0 12px;
     }
 
-    .sidebar-header {
-        font-size: 0.9rem;
-        padding: 0.8rem;
+    main.container {
+        padding: 0 12px !important;
     }
 
-    .sidebar-link {
-        padding: 0.6rem 0.8rem;
-        font-size: 0.9rem;
-    }
-
-    /* Tablet: Sections should use full width */
-    .section {
-        margin: 2rem auto;
-        padding: 2rem 1.5rem;
+    .hero {
+        padding: 3rem 1rem;
+        min-height: 250px;
     }
 
     .hero-content h2 {
@@ -1143,13 +1144,8 @@ main.container {
         font-size: 1.1rem;
     }
 
-    .hero {
-        padding: 3rem 1rem;
-        min-height: 250px;
-    }
-
     .theme-selector {
-        margin: 1rem 0;
+        margin: 1.5rem 0;
     }
 
     .theme-selector label {
@@ -1163,11 +1159,41 @@ main.container {
 
     .section {
         padding: 2rem 1rem;
-        margin: 1rem 0;
+        margin: 1.5rem 0 !important;
     }
 
     .section h2 {
         font-size: 1.8rem;
+    }
+
+    .featured-event-banner {
+        padding: 2rem 1.5rem;
+        margin: 0 0 2rem 0 !important;
+    }
+
+    .featured-event-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .featured-event-icon {
+        font-size: 3rem;
+    }
+
+    .featured-event-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .featured-event-details {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .featured-event-btn {
+        width: 100%;
+        text-align: center;
     }
 
     .announcements-grid {
@@ -1216,35 +1242,6 @@ main.container {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
-
-    .featured-event-banner {
-        padding: 2rem 1.5rem;
-    }
-
-    .featured-event-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-    }
-
-    .featured-event-icon {
-        font-size: 3rem;
-    }
-
-    .featured-event-info h3 {
-        font-size: 1.4rem;
-    }
-
-    .featured-event-details {
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-bottom: 1rem;
-    }
-
-    .featured-event-btn {
-        width: 100%;
-        text-align: center;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1263,33 +1260,15 @@ main.container {
 
     /* Mobile container and main styles */
     main.container {
-        margin-left: 0 !important;
-        padding: 0 12px;
+        padding: 0 10px !important;
     }
 
     .container {
-        padding: 0 12px;
+        padding: 0 10px;
     }
 
-    .theme-selector {
-        padding: 1rem;
-        margin: 1rem auto;
-    }
-
-    .featured-event-banner {
-        padding: 1.5rem 1rem;
-        margin: 0 auto 1.5rem auto !important;
-        border-radius: 8px;
-    }
-
-    .featured-event-content {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
-    }
-
-    .featured-event-icon {
-        font-size: 2.5rem;
-        text-align: center;
+    .hero {
+        padding: 2rem 1rem;
     }
 
     .hero-content h2 {
@@ -1300,8 +1279,22 @@ main.container {
         font-size: 0.95rem;
     }
 
+    .theme-selector {
+        padding: 1rem;
+        margin: 1rem 0 !important;
+    }
+
+    .section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0 !important;
+    }
+
     .section h2 {
         font-size: 1.5rem;
+    }
+
+    .announcements-grid {
+        grid-template-columns: 1fr;
     }
 
     .announcement-card h3 {
@@ -1318,11 +1311,18 @@ main.container {
 
     .featured-event-banner {
         padding: 1.5rem 1rem;
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 1.5rem 0 !important;
+        border-radius: 8px;
+    }
+
+    .featured-event-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .featured-event-icon {
         font-size: 2.5rem;
+        text-align: center;
     }
 
     .featured-event-info h3 {
