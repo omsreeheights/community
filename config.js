@@ -7,7 +7,7 @@ const CONFIG = {
     siteName: 'Om Sree Heights Community',
     cooperativeName: 'Om Sree Heights Flat Owners Maintenance Mutually Aided Cooperative Society Ltd',
     totalFlats: 600,
-    location: 'Hislop Road, Kowkoor Village, Alwal Mandal, Medchal-Malkajgiri, Telangana 500010',
+    location: 'Hislop Road, Kowkoor Village, Alwal Mandal, Medchal-Malkajgiri, Telangana, India 500010',
     managementEmail: 'management@omsreeheights.com',
     complaintsEmail: 'complaints@omsreeheights.com',
     generalEmail: 'contact@omsreeheights.com',
@@ -231,7 +231,7 @@ const CONFIG = {
         address: {
             icon: '📍',
             title: 'Address',
-            details: 'Om Sree Heights Management Office\nHislop Road, Kowkoor Village\nAlwal Mandal, Medchal-Malkajgiri\nTelangana 500010'
+            details: 'Om Sree Heights Management Office\nHislop Road, Kowkoor Village\nAlwal Mandal, Medchal-Malkajgiri\nTelangana, India 500010'
         },
         phone: {
             icon: '📞',
