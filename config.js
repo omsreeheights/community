@@ -26,47 +26,53 @@ const CONFIG = {
         {
             id: 1,
             date: 'Mar 21, 2026',
+            title: '🙏 Ram Navami Celebration - March 27, 2026',
+            description: 'Our community will celebrate Ram Navami with devotional songs, prayers, and cultural programs. Special arrangements for prasad distribution. All residents are invited to participate. Let\'s celebrate this auspicious occasion together as one community. Event starts at 5:00 PM at the Community Hall.'
+        },
+        {
+            id: 2,
+            date: 'Mar 21, 2026',
             title: 'Q1 Maintenance Collection Due (March 2026)',
             description: 'Quarterly maintenance charges for Q1 (Jan-Mar 2026) are due by March 31st. Payment can be made at the Management Office or through online banking. Account details available on notice board. Late payments will incur a 2% monthly interest.'
         },
         {
-            id: 2,
+            id: 3,
             date: 'Mar 18, 2026',
             title: 'Annual General Meeting - April 5, 2026',
             description: 'The Annual General Meeting (AGM) will be held on April 5, 2026 at 6:00 PM in the Community Hall. Important topics: Budget approval, Board elections, infrastructure projects. All flat owners are encouraged to attend. Proxy voting available.'
         },
         {
-            id: 3,
+            id: 4,
             date: 'Mar 15, 2026',
             title: 'New Security Protocol Implementation',
             description: 'Effective April 1st, new security protocols will be in place. All visitors must register at the main gate. Delivery personnel should use the dedicated service entrance. Residential passes will be renewed. Guards will enforce these rules strictly.'
         },
         {
-            id: 4,
+            id: 5,
             date: 'Mar 12, 2026',
             title: 'Scheduled Water Tank Maintenance',
             description: 'Water tank maintenance is scheduled for March 22nd from 10 AM to 4 PM. Water supply will be unavailable during this period. Residents are requested to store sufficient water. We regret any inconvenience.'
         },
         {
-            id: 5,
+            id: 6,
             date: 'Mar 10, 2026',
             title: 'Parking Zone Updates - Important Notice',
             description: 'New parking regulations are now in effect. Each flat is entitled to 1 designated parking space in their zone. Additional vehicle parking requires special permission from management. Violators will be fined ₹500 per day.'
         },
         {
-            id: 6,
+            id: 7,
             date: 'Mar 8, 2026',
             title: 'Community Garden Expansion Phase 2',
             description: 'We are pleased to announce Phase 2 of our community garden project. Residents interested in gardening can register at the office. Free seedlings and tools will be provided. Next meeting: March 25th at 5 PM near the garden.'
         },
         {
-            id: 7,
+            id: 8,
             date: 'Mar 5, 2026',
             title: 'Electricity Meter Audit - Notification',
             description: 'Annual electricity meter audit will commence from March 20th. An authorized technician will visit each flat. Please ensure access to your meter. If you miss the appointment, a re-visit fee of ₹100 will be charged.'
         },
         {
-            id: 8,
+            id: 9,
             date: 'Mar 1, 2026',
             title: 'New Complaint Redressal System Online',
             description: 'We have launched an online complaint system for faster resolution. Visit our website portal, click "File Complaint", and track your complaint status in real-time. For urgent issues, call 9876-543211.'
@@ -77,6 +83,15 @@ const CONFIG = {
     events: [
         {
             id: 1,
+            month: 'Mar',
+            day: '27',
+            title: '🙏 Ram Navami Celebration',
+            description: 'Join us in celebrating the birth of Lord Rama! Devotional songs, prayers, and cultural programs. Special arrangements for prasad distribution. A wonderful opportunity to celebrate this auspicious occasion with our community family.',
+            time: '5:00 PM - 8:00 PM',
+            location: 'Community Hall'
+        },
+        {
+            id: 2,
             month: 'Apr',
             day: '05',
             title: 'Annual General Meeting (AGM)',
@@ -85,7 +100,7 @@ const CONFIG = {
             location: 'Community Hall'
         },
         {
-            id: 2,
+            id: 3,
             month: 'Apr',
             day: '15',
             title: 'Community Cleanup Drive',
@@ -94,7 +109,7 @@ const CONFIG = {
             location: 'Common areas'
         },
         {
-            id: 3,
+            id: 4,
             month: 'May',
             day: '03',
             title: 'Summer Sports Day',
@@ -103,7 +118,7 @@ const CONFIG = {
             location: 'Sports Ground'
         },
         {
-            id: 4,
+            id: 5,
             month: 'May',
             day: '18',
             title: 'Community Yoga & Wellness Session',
@@ -112,7 +127,7 @@ const CONFIG = {
             location: 'Open Air Pavilion'
         },
         {
-            id: 5,
+            id: 6,
             month: 'Jun',
             day: '01',
             title: 'Monsoon Preparedness Workshop',
@@ -121,7 +136,7 @@ const CONFIG = {
             location: 'Community Hall'
         },
         {
-            id: 6,
+            id: 7,
             month: 'Jul',
             day: '20',
             title: 'Summer Kids Camp & Games',
@@ -130,7 +145,7 @@ const CONFIG = {
             location: 'Community Center'
         },
         {
-            id: 7,
+            id: 8,
             month: 'Aug',
             day: '15',
             title: 'Independence Day Celebration',
@@ -139,7 +154,7 @@ const CONFIG = {
             location: 'Main Grounds'
         },
         {
-            id: 8,
+            id: 9,
             month: 'Oct',
             day: '02',
             title: 'Gandhi Jayanti Celebration',
@@ -148,7 +163,7 @@ const CONFIG = {
             location: 'Community Hall'
         },
         {
-            id: 9,
+            id: 10,
             month: 'Nov',
             day: '10',
             title: 'Diwali Festival Celebration',
@@ -157,7 +172,7 @@ const CONFIG = {
             location: 'Common Areas & Grounds'
         },
         {
-            id: 10,
+            id: 11,
             month: 'Dec',
             day: '25',
             title: 'Christmas & Year-End Party',
