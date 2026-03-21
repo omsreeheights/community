@@ -298,6 +298,28 @@ function setupEventListeners() {
             navMenu.classList.remove('active');
         });
     });
+
+    // Sidebar expand/collapse functionality
+    const sidebarExpandBtn = document.getElementById('sidebarExpandBtn');
+    const sidebarDropdown = document.getElementById('sidebarDropdown');
+    
+    if (sidebarExpandBtn) {
+        sidebarExpandBtn.addEventListener('click', () => {
+            sidebarDropdown.classList.toggle('active');
+            // Change button text based on state
+            const isActive = sidebarDropdown.classList.contains('active');
+            sidebarExpandBtn.textContent = isActive ? 'Less ▲' : 'More ▼';
+        });
+    }
+
+    // Close sidebar dropdown when a link is clicked
+    const sidebarLinks = document.querySelectorAll('.sidebar-dropdown .sidebar-link');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            sidebarDropdown.classList.remove('active');
+            sidebarExpandBtn.textContent = 'More ▼';
+        });
+    });
     
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
