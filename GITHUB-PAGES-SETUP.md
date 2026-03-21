@@ -22,7 +22,7 @@ This guide will help you publish your Om Sree Heights Community website on GitHu
 Run these commands in your terminal:
 
 ```bash
-cd c:\sw-dev\github\trisandhya\community
+cd c:\sw-dev\github\omsreeheights\community
 
 # Check git status
 git status
@@ -40,7 +40,7 @@ git push origin main
 ### Step 2: Enable GitHub Pages
 
 1. **Go to your GitHub repository** on the web
-   - URL: `https://github.com/trisandhya/community`
+   - URL: `https://github.com/omsreeheights/community`
 
 2. **Click on "Settings"** (top right)
 
@@ -57,7 +57,7 @@ git push origin main
 
 Your website will be available at:
 ```
-https://trisandhya.github.io/community/
+https://omsreeheights.github.io/community/
 ```
 
 ---
@@ -132,7 +132,7 @@ This is optional and automatically deployed when you push.
    - You should see "github-pages" deployment
 
 3. **Visit your website:**
-   - Open: `https://trisandhya.github.io/community/`
+   - Open: `https://omsreeheights.github.io/community/`
 
 4. **Test on mobile:**
    - Open the site on your phone
@@ -216,7 +216,7 @@ If you have a custom domain (e.g., `www.omsreeheights.com`):
    A record: 185.199.110.153
    A record: 185.199.111.153
    
-   CNAME: trisandhya.github.io
+   CNAME: omsreeheights.github.io
    ```
 4. Click "Save" and wait for GitHub to verify
 
@@ -271,10 +271,10 @@ git push origin main
 
 | What | URL |
 |------|-----|
-| **Website** | `https://trisandhya.github.io/community/` |
-| **Repository** | `https://github.com/trisandhya/community` |
-| **Settings** | `https://github.com/trisandhya/community/settings/pages` |
-| **Actions** | `https://github.com/trisandhya/community/actions` |
+| **Website** | `https://omsreeheights.github.io/community/` |
+| **Repository** | `https://github.com/omsreeheights/community` |
+| **Settings** | `https://github.com/omsreeheights/community/settings/pages` |
+| **Actions** | `https://github.com/omsreeheights/community/actions` |
 
 ---
 

@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     renderEvents();
     renderGallery();
     renderAbout();
+    renderFacilities();
+    renderBoard();
+    renderImportantLinks();
+    renderRules();
+    renderFAQ();
     renderContact();
     setupEventListeners();
 });
@@ -157,6 +162,123 @@ function renderContact() {
     
     container.innerHTML = contactHTML;
 }
+
+// ===== FACILITIES RENDERING =====
+
+function renderFacilities() {
+    const container = document.getElementById('facilitiesContainer');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    CONFIG.facilities.forEach(facility => {
+        const card = document.createElement('div');
+        card.className = 'facility-card';
+        card.innerHTML = `
+            <div class="facility-icon">${facility.icon}</div>
+            <h3>${facility.name}</h3>
+            <p>${facility.description}</p>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// ===== BOARD MEMBERS RENDERING =====
+
+function renderBoard() {
+    const container = document.getElementById('boardContainer');
+    if (!container) return;
+    
+    let boardHTML = '';
+    const boardData = CONFIG.board;
+    
+    Object.values(boardData).forEach(member => {
+        const initials = member.name.split(' ').map(n => n[0]).join('');
+        boardHTML += `
+            <div class="board-member">
+                <div class="member-avatar">${initials}</div>
+                <div class="member-name">${member.name}</div>
+                <div class="member-position">${member.position}</div>
+                <div class="member-contact">📞 ${member.contact}</div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = boardHTML;
+}
+
+// ===== IMPORTANT LINKS RENDERING =====
+
+function renderImportantLinks() {
+    const container = document.getElementById('linksContainer');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    CONFIG.importantLinks.forEach(link => {
+        const card = document.createElement('div');
+        card.className = 'link-card';
+        card.innerHTML = `
+            <div class="link-icon">${link.icon}</div>
+            <h3>${link.title}</h3>
+            <p>${link.description}</p>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// ===== RULES RENDERING =====
+
+function renderRules() {
+    const container = document.getElementById('rulesContainer');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    CONFIG.rules.categories.forEach(category => {
+        const rulesHTML = category.rules.map(rule => `<li>${rule}</li>`).join('');
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'rule-category';
+        categoryDiv.innerHTML = `
+            <h3>${category.name}</h3>
+            <ul>
+                ${rulesHTML}
+            </ul>
+        `;
+        container.appendChild(categoryDiv);
+    });
+}
+
+// ===== FAQ RENDERING =====
+
+function renderFAQ() {
+    const container = document.getElementById('faqContainer');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    CONFIG.faq.forEach((item, index) => {
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+        faqItem.innerHTML = `
+            <div class="faq-question" onclick="toggleFAQ(${index})">
+                <span>${item.question}</span>
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                ${item.answer}
+            </div>
+        `;
+        container.appendChild(faqItem);
+    });
+}
+
+// ===== FAQ TOGGLE FUNCTION =====
+
+function toggleFAQ(index) {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems[index]) {
+        faqItems[index].classList.toggle('active');
+    }
+}
+
+
 
 // ===== EVENT LISTENERS =====
 

@@ -56,10 +56,10 @@ git log --oneline
 
 | Purpose | URL |
 |---------|-----|
-| Main Website | https://trisandhya.github.io/community/ |
-| Repository | https://github.com/trisandhya/community |
-| Settings | https://github.com/trisandhya/community/settings/pages |
-| Actions | https://github.com/trisandhya/community/actions |
+| Main Website | https://omsreeheights.github.io/community/ |
+| Repository | https://github.com/omsreeheights/community |
+| Settings | https://github.com/omsreeheights/community/settings/pages |
+| Actions | https://github.com/omsreeheights/community/actions |
 
 ---
 
