@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om Sree Heights Community</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Om Sree Heights</h1>
+                    <p class="tagline">Community Portal</p>
+                </div>
+                <nav class="nav">
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#announcements">Announcements</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2 id="heroTitle">Welcome to Our Community</h2>
+            <p id="heroSubtitle">Hislop Road, Kowkoor Village, Alwal Mandal</p>
+        </div>
+    </section>
+
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <label for="monthSelector">Current Month:</label>
+        <select id="monthSelector">
+            <option value="0">January (Winter Blue)</option>
+            <option value="1">February (Love Red)</option>
+            <option value="2">March (Spring Green)</option>
+            <option value="3">April (Cherry Blossom)</option>
+            <option value="4">May (Sunny Gold)</option>
+            <option value="5">June (Ocean Teal)</option>
+            <option value="6">July (Vibrant Purple)</option>
+            <option value="7">August (Sunset Orange)</option>
+            <option value="8">September (Harvest Bronze)</option>
+            <option value="9">October (Pumpkin Spice)</option>
+            <option value="10">November (Grateful Brown)</option>
+            <option value="11">December (Holiday Red)</option>
+        </select>
+    </div>
+
+    <main class="container">
+        <!-- Announcements Section -->
+        <section class="section announcements" id="announcements">
+            <h2>Latest Announcements</h2>
+            <div class="announcements-grid" id="announcementsContainer">
+                <!-- Generated from config.js -->
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="section events" id="events">
+            <h2>Upcoming Events</h2>
+            <div class="events-list" id="eventsContainer">
+                <!-- Generated from config.js -->
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section gallery" id="gallery">
+            <h2>Community Gallery</h2>
+            <div class="gallery-grid" id="galleryContainer">
+                <!-- Generated from config.js -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <h2>About Our Community</h2>
+            <div class="about-content" id="aboutContainer">
+                <!-- Generated from config.js -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <h2>Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info" id="contactContainer">
+                    <!-- Generated from config.js -->
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Om Sree Heights Community. All rights reserved.</p>
+            <p>Medchal-Malkajgiri, Telangana 500010</p>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
