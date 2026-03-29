@@ -485,14 +485,16 @@ main.container {
         right: 20px;
         left: auto;
         top: 250px;
-        width: 220px;
+        width: 240px;
         background: white;
         border: 2px solid var(--primary-color);
         border-radius: 8px;
-        padding: 1rem;
+        padding: 1.2rem;
         z-index: 200;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         flex-direction: column;
+        max-height: 60vh;
+        overflow-y: auto;
     }
 }
 
@@ -504,21 +506,30 @@ main.container {
         left: auto;
         top: auto;
         bottom: 80px;
-        width: calc(100% - 20px);
+        width: calc(100% - 30px);
+        max-width: 320px;
         background: white;
         border: 2px solid var(--primary-color);
         border-radius: 8px;
-        padding: 1rem;
+        padding: 1.2rem;
         z-index: 200;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         flex-direction: column;
+        overflow-y: auto;
+        max-height: 60vh;
     }
 }
 
 .sidebar-dropdown .sidebar-link {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
     color: var(--secondary-color);
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .sidebar-dropdown .sidebar-link:hover {
@@ -1138,16 +1149,31 @@ main.container {
 
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .logo {
+        flex: 0 0 80%;
+    }
+
+    .logo h1 {
+        font-size: 1.3rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .tagline {
+        font-size: 0.7rem;
     }
 
     .menu-toggle {
         display: flex;
-        position: absolute;
-        right: 20px;
-        top: 1.5rem;
+        position: relative;
+        right: auto;
+        top: auto;
     }
 
     .nav-menu {
@@ -1162,10 +1188,12 @@ main.container {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
+        visibility: hidden;
     }
 
     .nav-menu.active {
         max-height: 500px;
+        visibility: visible;
     }
 
     /* Hide sidebar completely on tablet */
