@@ -1,0 +1,50 @@
+# GitHub Pages Configuration for Om Sree Heights Community Portal
+
+# Site Configuration
+title: Om Sree Heights Community Portal
+description: Online portal for Om Sree Heights Flat Owners Maintenance Mutually Aided Cooperative Society
+url: https://omsreeheights.github.io
+repository: omsreeheights/community
+
+# Theme
+theme: jekyll-theme-minimal
+
+# Build settings
+markdown: kramdown
+safe: true
+
+# Exclude files
+exclude:
+  - .gitignore
+  - CONTRIBUTING.md
+  - node_modules
+  - vendor
+
+# Include files
+include:
+  - .htaccess
+
+# Compression
+compress_html:
+  clipped: true
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: development
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# SEO settings
+keep_files:
+  - .git
+
+# Front matter defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
