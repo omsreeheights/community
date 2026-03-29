@@ -4,12 +4,23 @@
 
 // Get the base path for GitHub Pages compatibility
 function getBasePath() {
-    // For GitHub Pages with repo name: /community/
-    // For local: /
     const pathName = window.location.pathname;
-    if (pathName.includes('community')) {
+    const hostname = window.location.hostname;
+    
+    console.log('Pathname:', pathName);
+    console.log('Hostname:', hostname);
+    
+    // For GitHub Pages with omsreeheights.github.io domain
+    if (hostname === 'omsreeheights.github.io') {
         return '/community/';
     }
+    
+    // Generic check: if pathname contains /community
+    if (pathName.includes('/community/') || pathName.startsWith('/community')) {
+        return '/community/';
+    }
+    
+    // Local/development
     return '/';
 }
 
@@ -37,7 +48,8 @@ async function loadContent() {
 async function fetchContent(path) {
     // Construct full path with base path
     const fullPath = BASE_PATH + path;
-    console.log(`Fetching: ${fullPath}`);
+    console.log(`Fetching from path: ${BASE_PATH} + ${path} = ${fullPath}`);
+    console.log(`Full URL: ${window.location.origin}${fullPath}`);
     
     try {
         const response = await fetch(fullPath);
@@ -46,9 +58,11 @@ async function fetchContent(path) {
             // Try without base path as fallback
             if (BASE_PATH !== '/') {
                 try {
-                    const altResponse = await fetch('/' + path);
+                    const altPath = '/' + path;
+                    console.log(`Trying fallback: ${altPath}`);
+                    const altResponse = await fetch(altPath);
                     if (altResponse.ok) {
-                        console.log(`✓ Loaded from fallback path: /${path}`);
+                        console.log(`✓ Loaded from fallback path: ${altPath}`);
                         return await altResponse.text();
                     }
                 } catch (altError) {
@@ -57,6 +71,7 @@ async function fetchContent(path) {
             }
             return null;
         }
+        console.log(`✓ Successfully fetched: ${fullPath}`);
         return await response.text();
     } catch (error) {
         console.warn(`Fetch error for ${fullPath}:`, error);
