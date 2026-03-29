@@ -2,6 +2,20 @@
 // Content Loader - Dynamically Load Content from Files
 // ===========================
 
+// Get the base path for GitHub Pages compatibility
+function getBasePath() {
+    // For GitHub Pages with repo name: /community/
+    // For local: /
+    const pathName = window.location.pathname;
+    if (pathName.includes('community')) {
+        return '/community/';
+    }
+    return '/';
+}
+
+const BASE_PATH = getBasePath();
+console.log('Base path:', BASE_PATH);
+
 async function loadContent() {
     try {
         console.log('Starting content loading...');
@@ -21,26 +35,31 @@ async function loadContent() {
 
 // Helper function to fetch content with fallback for local files
 async function fetchContent(path) {
+    // Construct full path with base path
+    const fullPath = BASE_PATH + path;
+    console.log(`Fetching: ${fullPath}`);
+    
     try {
-        const response = await fetch(path);
+        const response = await fetch(fullPath);
         if (!response.ok) {
-            console.warn(`Failed to fetch ${path}: ${response.status} ${response.statusText}`);
+            console.warn(`Failed to fetch ${fullPath}: ${response.status} ${response.statusText}`);
+            // Try without base path as fallback
+            if (BASE_PATH !== '/') {
+                try {
+                    const altResponse = await fetch('/' + path);
+                    if (altResponse.ok) {
+                        console.log(`✓ Loaded from fallback path: /${path}`);
+                        return await altResponse.text();
+                    }
+                } catch (altError) {
+                    console.warn('Fallback path also failed');
+                }
+            }
             return null;
         }
         return await response.text();
     } catch (error) {
-        console.warn(`Fetch error for ${path}:`, error);
-        // Try alternative path resolution
-        if (!path.startsWith('/')) {
-            try {
-                const altResponse = await fetch('/' + path);
-                if (altResponse.ok) {
-                    return await altResponse.text();
-                }
-            } catch (altError) {
-                console.warn(`Alternative path also failed for ${path}`);
-            }
-        }
+        console.warn(`Fetch error for ${fullPath}:`, error);
         return null;
     }
 }
