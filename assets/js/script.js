@@ -639,6 +639,20 @@ function updateEventsList() {
     }
     
     // Display first 5 upcoming events
+    upcomingEvents.slice(0, 5).forEach(event => {
+        const eventDiv = document.createElement('div');
+        eventDiv.className = 'event-item-calendar';
+        
+        const date = new Date(event.dateStr);
+        const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        
+        eventDiv.innerHTML = `
+            <h5>📅 ${dateStr}</h5>
+            <h6>${event.title}</h6>
+            <p>${event.description}</p>
+        `;
+        
+        eventsList.appendChild(eventDiv);
     });
 }
 
