@@ -453,6 +453,19 @@ main.container {
     transform: scale(1.05);
 }
 
+/* Mobile button positioning */
+@media (max-width: 768px) {
+    .sidebar-expand-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        left: auto;
+        width: calc(100% - 20px);
+        margin: 0;
+        z-index: 190;
+    }
+}
+
 .sidebar-dropdown {
     display: none;
     flex-direction: column;
@@ -463,6 +476,43 @@ main.container {
 
 .sidebar-dropdown.active {
     display: flex;
+}
+
+/* Desktop dropdown positioning - position to right */
+@media (min-width: 1025px) {
+    .sidebar-dropdown.active {
+        position: fixed;
+        right: 20px;
+        left: auto;
+        top: 250px;
+        width: 220px;
+        background: white;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 1rem;
+        z-index: 200;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+    }
+}
+
+/* Mobile dropdown positioning - position to right */
+@media (max-width: 768px) {
+    .sidebar-dropdown.active {
+        position: fixed;
+        right: 10px;
+        left: auto;
+        top: auto;
+        bottom: 80px;
+        width: calc(100% - 20px);
+        background: white;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        padding: 1rem;
+        z-index: 200;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+    }
 }
 
 .sidebar-dropdown .sidebar-link {
