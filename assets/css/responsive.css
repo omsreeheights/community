@@ -89,6 +89,33 @@
     .contact-form-section {
         order: 1;
     }
+
+    .calendar-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .calendar-header h3 {
+        min-width: auto;
+    }
+
+    .calendar-nav-btn {
+        width: 100%;
+    }
+
+    .calendar-legend {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .calendar-grid {
+        gap: 0.25rem;
+        padding: 0.5rem;
+    }
+
+    .calendar-day {
+        font-size: 0.85rem;
+    }
 }
 
 /* Mobile Screens (480px and below) */

@@ -48,6 +48,10 @@
                     <span class="tab-icon">💬</span>
                     <span class="tab-text">Feedback</span>
                 </button>
+                <button class="tab-button" data-tab="calendar">
+                    <span class="tab-icon">📆</span>
+                    <span class="tab-text">Calendar</span>
+                </button>
             </div>
         </nav>
 
@@ -296,6 +300,51 @@
                         </div>
                         <button type="submit" class="btn-submit">Submit Feedback</button>
                     </form>
+                </div>
+            </section>
+
+            <!-- Calendar Tab -->
+            <section id="calendar" class="tab-content">
+                <div class="content-wrapper">
+                    <h2>2026 Calendar</h2>
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav-btn" id="prev-month">← Previous</button>
+                            <h3 id="calendar-month-year"></h3>
+                            <button class="calendar-nav-btn" id="next-month">Next →</button>
+                        </div>
+                        <div class="calendar-info-banner">
+                            <p id="calendar-info-text">Select a date to view community events</p>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-weekday">Sun</div>
+                            <div class="calendar-weekday">Mon</div>
+                            <div class="calendar-weekday">Tue</div>
+                            <div class="calendar-weekday">Wed</div>
+                            <div class="calendar-weekday">Thu</div>
+                            <div class="calendar-weekday">Fri</div>
+                            <div class="calendar-weekday">Sat</div>
+                            <div id="calendar-days"></div>
+                        </div>
+                        <div class="calendar-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: var(--secondary-color);"></span>
+                                <span>Today</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: var(--accent-color);"></span>
+                                <span>Event Day</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #95a5a6;"></span>
+                                <span>Other Month</span>
+                            </div>
+                        </div>
+                        <div class="calendar-events" id="calendar-events">
+                            <h4>Upcoming Events</h4>
+                            <div id="events-list"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>

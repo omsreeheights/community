@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTabs();
     initForms();
     initMonthlyTheme();
+    initCalendar();
     // Check for date change every minute
     setInterval(checkDateChange, 60000);
 });
@@ -123,10 +124,7 @@ function applyMonthlyTheme() {
     
     const root = document.documentElement;
     
-    // Apply color transitions for smooth theme change
-    root.style.transition = 'all 0.6s ease-in-out';
-    
-    // Update CSS variables
+    // Update CSS variables - they apply immediately
     root.style.setProperty('--primary-color', theme.primary);
     root.style.setProperty('--secondary-color', theme.secondary);
     root.style.setProperty('--accent-color', theme.accent);
@@ -455,6 +453,220 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// ===========================
+// Calendar System - 2026
+// ===========================
+
+let currentCalendarMonth = new Date().getMonth();
+let currentCalendarYear = 2026;
+
+// Important dates and events for the community in 2026
+const communityEvents = {
+    '2026-01-26': { title: 'Republic Day Celebration', description: 'Community gathering for national celebration' },
+    '2026-02-14': { title: 'Valentine\'s Day Event', description: 'Special community gathering' },
+    '2026-02-26': { title: 'Holi Celebration', description: 'Festival of colors celebration' },
+    '2026-03-25': { title: 'Society General Meeting', description: 'Monthly general meeting at 6:00 PM' },
+    '2026-04-01': { title: 'Festival of Joy', description: 'Community festival and celebrations' },
+    '2026-04-15': { title: 'Society General Meeting', description: 'Monthly general meeting' },
+    '2026-05-05': { title: 'Maintenance Reminder', description: 'Monthly maintenance fee due date' },
+    '2026-06-15': { title: 'Sports Day Preparation', description: 'Planning meeting for annual sports day' },
+    '2026-07-04': { title: 'Independence Day Preparation', description: 'Decorations and planning start' },
+    '2026-08-15': { title: 'Independence Day', description: 'National holiday and community celebration' },
+    '2026-08-25': { title: 'Janmashtami', description: 'Festival of Lord Krishna' },
+    '2026-09-20': { title: 'Back to School Event', description: 'Community support for students' },
+    '2026-10-02': { title: 'Gandhi Jayanti', description: 'National holiday' },
+    '2026-10-15': { title: 'Dussehra Celebration', description: 'Festival celebration and events' },
+    '2026-10-25': { title: 'Durga Puja', description: 'Cultural festival celebrations' },
+    '2026-11-08': { title: 'Diwali Preparation', description: 'Community gathering and decorations' },
+    '2026-11-15': { title: 'Diwali Celebration', description: 'Festival of lights - Grand celebration' },
+    '2026-12-15': { title: 'Annual General Body Meeting', description: 'Yearly community meeting' },
+    '2026-12-25': { title: 'Christmas Celebration', description: 'Holiday festivities' }
+};
+
+/**
+ * Initialize calendar on page load
+ */
+function initCalendar() {
+    const prevBtn = document.getElementById('prev-month');
+    const nextBtn = document.getElementById('next-month');
+    
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => previousMonth());
+        nextBtn.addEventListener('click', () => nextMonth());
+    }
+    
+    renderCalendar();
+}
+
+/**
+ * Render calendar for current month
+ */
+function renderCalendar() {
+    const firstDay = new Date(currentCalendarYear, currentCalendarMonth, 1).getDay();
+    const daysInMonth = new Date(currentCalendarYear, currentCalendarMonth + 1, 0).getDate();
+    const daysInPrevMonth = new Date(currentCalendarYear, currentCalendarMonth, 0).getDate();
+    
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    // Update header
+    const monthYearEl = document.getElementById('calendar-month-year');
+    if (monthYearEl) {
+        monthYearEl.textContent = `${monthNames[currentCalendarMonth]} ${currentCalendarYear}`;
+    }
+    
+    // Clear calendar
+    const calendarDaysEl = document.getElementById('calendar-days');
+    if (!calendarDaysEl) return;
+    
+    calendarDaysEl.innerHTML = '';
+    
+    // Add previous month's days
+    for (let i = firstDay - 1; i >= 0; i--) {
+        const dayEl = createDayElement(daysInPrevMonth - i, true, null);
+        calendarDaysEl.appendChild(dayEl);
+    }
+    
+    // Add current month's days
+    const today = new Date();
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = `${currentCalendarYear}-${String(currentCalendarMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const isToday = today.getDate() === day && 
+                       today.getMonth() === currentCalendarMonth && 
+                       today.getFullYear() === currentCalendarYear;
+        const hasEvent = communityEvents[dateStr] !== undefined;
+        
+        const dayEl = createDayElement(day, false, { isToday, hasEvent, dateStr });
+        calendarDaysEl.appendChild(dayEl);
+    }
+    
+    // Add next month's days
+    const totalCells = calendarDaysEl.children.length + firstDay;
+    const remainingDays = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+    
+    for (let day = 1; day <= remainingDays; day++) {
+        const dayEl = createDayElement(day, true, null);
+        calendarDaysEl.appendChild(dayEl);
+    }
+    
+    updateEventsList();
+}
+
+/**
+ * Create a day element
+ */
+function createDayElement(day, isOtherMonth, info) {
+    const dayEl = document.createElement('div');
+    dayEl.className = 'calendar-day';
+    dayEl.textContent = day;
+    
+    if (isOtherMonth) {
+        dayEl.classList.add('other-month');
+        return dayEl;
+    }
+    
+    if (info) {
+        if (info.isToday) {
+            dayEl.classList.add('today');
+        }
+        if (info.hasEvent) {
+            dayEl.classList.add('has-event');
+            const indicator = document.createElement('div');
+            indicator.className = 'event-indicator';
+            dayEl.appendChild(indicator);
+        }
+        
+        dayEl.addEventListener('click', () => selectDate(info.dateStr, dayEl));
+    }
+    
+    return dayEl;
+}
+
+/**
+ * Handle date selection
+ */
+function selectDate(dateStr, element) {
+    // Remove previous selection
+    const previousSelected = document.querySelector('.calendar-day.selected');
+    if (previousSelected) {
+        previousSelected.classList.remove('selected');
+    }
+    
+    // Add selection to clicked element
+    element.classList.add('selected');
+    
+    // Update info banner
+    const event = communityEvents[dateStr];
+    const infoBanner = document.getElementById('calendar-info-text');
+    
+    if (event) {
+        infoBanner.textContent = `📌 ${event.title}`;
+    } else {
+        const date = new Date(dateStr);
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+        infoBanner.textContent = `${dayName}, ${date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`;
+    }
+}
+
+/**
+ * Update events list
+ */
+function updateEventsList() {
+    const eventsList = document.getElementById('events-list');
+    eventsList.innerHTML = '';
+    
+    const upcomingEvents = [];
+    
+    // Find events in current and next months
+    for (const dateStr in communityEvents) {
+        const eventDate = new Date(dateStr);
+        const now = new Date();
+        
+        // Only show events from this month onwards
+        if (eventDate.getFullYear() === currentCalendarYear && 
+            eventDate.getMonth() >= currentCalendarMonth) {
+            upcomingEvents.push({ dateStr, ...communityEvents[dateStr] });
+        }
+    }
+    
+    // Sort by date
+    upcomingEvents.sort((a, b) => new Date(a.dateStr) - new Date(b.dateStr));
+    
+    if (upcomingEvents.length === 0) {
+        eventsList.innerHTML = '<p class="no-events">No upcoming events</p>';
+        return;
+    }
+    
+    // Display first 5 upcoming events
+    });
+}
+
+/**
+ * Navigate to previous month
+ */
+function previousMonth() {
+    if (currentCalendarMonth === 0) {
+        currentCalendarMonth = 11;
+        currentCalendarYear--;
+    } else {
+        currentCalendarMonth--;
+    }
+    renderCalendar();
+}
+
+/**
+ * Navigate to next month
+ */
+function nextMonth() {
+    if (currentCalendarMonth === 11) {
+        currentCalendarMonth = 0;
+        currentCalendarYear++;
+    } else {
+        currentCalendarMonth++;
+    }
+    renderCalendar();
+}
 
 // ===========================
 // Smooth scrolling for anchor links
