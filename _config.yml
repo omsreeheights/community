@@ -23,6 +23,7 @@ exclude:
 # Include files
 include:
   - .htaccess
+  - content
 
 # Compression
 compress_html:
