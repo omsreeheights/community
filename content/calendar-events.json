@@ -1,0 +1,18 @@
+{
+  "2026-01-26": { "name": "Republic Day", "description": "India's Republic Day celebration" },
+  "2026-03-08": { "name": "Maha Shivaratri", "description": "Hindu festival celebrating Lord Shiva" },
+  "2026-03-25": { "name": "Holi", "description": "Festival of Colors" },
+  "2026-04-02": { "name": "Good Friday", "description": "Christian observance day" },
+  "2026-04-14": { "name": "Ambedkar Jayanti", "description": "Birth anniversary of Dr. B.R. Ambedkar" },
+  "2026-05-01": { "name": "May Day", "description": "International Workers' Day" },
+  "2026-06-12": { "name": "Eid ul-Fitr", "description": "Islamic festival marking the end of Ramadan" },
+  "2026-07-17": { "name": "Muharram", "description": "Islamic new year" },
+  "2026-08-15": { "name": "Independence Day", "description": "India's Independence Day" },
+  "2026-08-31": { "name": "Janmashtami", "description": "Birth of Lord Krishna" },
+  "2026-09-16": { "name": "Milad un-Nabi", "description": "Prophet Muhammad's birthday" },
+  "2026-10-02": { "name": "Gandhi Jayanti", "description": "Birth anniversary of Mahatma Gandhi" },
+  "2026-10-20": { "name": "Dussehra", "description": "Victory of good over evil" },
+  "2026-11-08": { "name": "Diwali", "description": "Festival of Lights" },
+  "2026-11-15": { "name": "Guru Nanak Jayanti", "description": "Birth of Guru Nanak Dev Ji" },
+  "2026-12-25": { "name": "Christmas", "description": "Christmas Day celebration" }
+}
